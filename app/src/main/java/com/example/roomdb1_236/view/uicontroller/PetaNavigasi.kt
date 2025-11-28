@@ -10,7 +10,7 @@ import com.example.roomdb1_236.view.route.DestinasiHome
 import java.lang.reflect.Modifier
 
 @Composable
-fun SiswaApp(navController: NavHostController = rememberNavController(), modifier: Modifier) {
+fun SiswaApp(navController: NavHostController = rememberNavController(), modifier: androidx.compose.ui.Modifier) {
     HostNavigasi(navController = navController)
 }
 
