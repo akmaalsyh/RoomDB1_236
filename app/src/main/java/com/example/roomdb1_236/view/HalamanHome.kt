@@ -3,6 +3,8 @@ package com.example.roomdb1_236.view
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -21,6 +23,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.roomdb1_236.R
+import com.example.roomdb1_236.room.Siswa
 import com.example.roomdb1_236.view.route.DestinasiHome
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -83,6 +86,22 @@ fun BodyHome(
             ListSiswa(
                 itemSiswa = itemSiswa,
                 modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_small))
+            )
+        }
+    }
+}
+
+@Composable
+fun ListSiswa(
+    itemSiswa: List<Siswa>,
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(modifier = modifier) {
+        items(items = itemSiswa, key = { it.id }) { person ->
+            DataSiswa(
+                siswa = person,
+                modifier = Modifier
+                    .padding(all = dimensionResource(id = R.dimen.padding_small))
             )
         }
     }
